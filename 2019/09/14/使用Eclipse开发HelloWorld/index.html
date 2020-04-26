@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>使用Eclipse开发HelloWorld | Reddes的个人博客</title><meta name="description" content="集成开发环境IDE是Integrated Development  Environment的缩写，中文是集成开发环境的意思。在实际工作当中一般使用IDE进行开发，相比editplus的相关文本编辑器，IDE能够更进一步提高开发效率。目前企业里面应用比较多的IDE是下面三款：  eclipse（ http://www.eclipse.org/）  免费 纯Java语言编写 免安装 扩展性强   My"><meta name="keywords" content="Java基础教程——第三章 面向对象"><meta name="author" content="Reddes"><meta name="copyright" content="Reddes"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="使用Eclipse开发HelloWorld"><meta name="twitter:description" content="集成开发环境IDE是Integrated Development  Environment的缩写，中文是集成开发环境的意思。在实际工作当中一般使用IDE进行开发，相比editplus的相关文本编辑器，IDE能够更进一步提高开发效率。目前企业里面应用比较多的IDE是下面三款：  eclipse（ http://www.eclipse.org/）  免费 纯Java语言编写 免安装 扩展性强   My"><meta name="twitter:image" content="http://reddescode.github.io/img/post.jpg"><meta property="og:type" content="article"><meta property="og:title" content="使用Eclipse开发HelloWorld"><meta property="og:url" content="http://reddescode.github.io/2019/09/14/%E4%BD%BF%E7%94%A8Eclipse%E5%BC%80%E5%8F%91HelloWorld/"><meta property="og:site_name" content="Reddes的个人博客"><meta property="og:description" content="集成开发环境IDE是Integrated Development  Environment的缩写，中文是集成开发环境的意思。在实际工作当中一般使用IDE进行开发，相比editplus的相关文本编辑器，IDE能够更进一步提高开发效率。目前企业里面应用比较多的IDE是下面三款：  eclipse（ http://www.eclipse.org/）  免费 纯Java语言编写 免安装 扩展性强   My"><meta property="og:image" content="http://reddescode.github.io/img/post.jpg"><meta property="article:published_time" content="2019-09-14T13:26:00.000Z"><meta property="article:modified_time" content="2020-04-26T15:16:40.032Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://reddescode.github.io/2019/09/14/%E4%BD%BF%E7%94%A8Eclipse%E5%BC%80%E5%8F%91HelloWorld/"><link rel="prev" title="eclipse的基本配置" href="http://reddescode.github.io/2019/09/14/eclipse%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/"><link rel="next" title="内部类" href="http://reddescode.github.io/2019/09/14/%E5%86%85%E9%83%A8%E7%B1%BB/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">332</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">80</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">47</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#集成开发环境"><span class="toc-number">1.</span> <span class="toc-text">集成开发环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eclipse下载和安装"><span class="toc-number">2.</span> <span class="toc-text">eclipse下载和安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用eclipse编写HelloWorld"><span class="toc-number">3.</span> <span class="toc-text">使用eclipse编写HelloWorld</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/img/post.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Reddes的个人博客</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fa fa-picture-o"></i><span> 照片</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">使用Eclipse开发HelloWorld</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-09-14 21:26:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-09-14</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-26 23:16:40"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-04-26</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/IT/">IT</a><i class="fa fa-angle-right post-meta__separator" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/IT/%E5%90%8E%E7%AB%AF/">后端</a><i class="fa fa-angle-right post-meta__separator" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/IT/%E5%90%8E%E7%AB%AF/Java/">Java</a><i class="fa fa-angle-right post-meta__separator" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/IT/%E5%90%8E%E7%AB%AF/Java/JavaSE/">JavaSE</a><i class="fa fa-angle-right post-meta__separator" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/IT/%E5%90%8E%E7%AB%AF/Java/JavaSE/Java%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/">Java基础教程</a><i class="fa fa-angle-right post-meta__separator" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/IT/%E5%90%8E%E7%AB%AF/Java/JavaSE/Java%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">第三章 面向对象</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h1 id="集成开发环境"><a href="#集成开发环境" class="headerlink" title="集成开发环境"></a>集成开发环境</h1><p>IDE是Integrated Development  Environment的缩写，中文是集成开发环境的意思。在实际工作当中一般使用IDE进行开发，相比editplus的相关文本编辑器，IDE能够更进一步提高开发效率。目前企业里面应用比较多的IDE是下面三款：</p>
+<ul>
+<li><p>eclipse（</p>
+<p><a href="http://www.eclipse.org/）" target="_blank" rel="noopener">http://www.eclipse.org/）</a></p>
+<ul>
+<li>免费</li>
+<li>纯Java语言编写</li>
+<li>免安装</li>
+<li>扩展性强</li>
+</ul>
+</li>
+<li><p>MyEclipse（</p>
+<p><a href="http://www.myeclipsecn.com/）" target="_blank" rel="noopener">http://www.myeclipsecn.com/）</a></p>
+<ul>
+<li>在Eclipse基础上追加的功能性插件，对插件收费</li>
+<li>在WEB开发中提供强大的系统架构平台</li>
+</ul>
+</li>
+<li><p>IDEA（</p>
+<p><a href="http://www.jetbrains.com/idea/）" target="_blank" rel="noopener">http://www.jetbrains.com/idea/）</a></p>
+<ul>
+<li>收费</li>
+<li>UI比较美观</li>
+</ul>
+</li>
+</ul>
+<h1 id="eclipse下载和安装"><a href="#eclipse下载和安装" class="headerlink" title="eclipse下载和安装"></a>eclipse下载和安装</h1><p>除了可以在eclipse官网下载，也可以在云盘里面下载：<a href="http://pan.baidu.com/s/1o7QZ8LW" target="_blank" rel="noopener">http://pan.baidu.com/s/1o7QZ8LW</a><br> 注意分为32位和64位的。下载好之后， 将文件解压，之后双击eclipse.exe 。</p>
+<h1 id="使用eclipse编写HelloWorld"><a href="#使用eclipse编写HelloWorld" class="headerlink" title="使用eclipse编写HelloWorld"></a>使用eclipse编写HelloWorld</h1><p>eclipse启动之后会提示选择工作空间，将来所编写的代码都存放在工作空间所在的目录里面。设置好工作空间之后，勾选上复选框，这样以后在启动eclipse时就不会再次弹出这个对话框了，点击ok<br> <img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/1%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4.png"  alt="1工作空间"><br> 将欢迎界面关闭，进入到eclipse视图，点击file—&gt;new—&gt;project—&gt;java project<br> <img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/2%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE.png"  alt="img">)<img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/3javaproject.png"  alt="3javaproject"></p>
+<p>输入项目名称（在eclipse里面是以项目为单位的），点击finish，在弹出的对话框里面点击yes。<br> <img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/4%E9%A1%B9%E7%9B%AE%E5%90%8D%E7%A7%B0.png"  alt="4项目名称"><br> 在src上面右键，点击new—&gt;package，创建一个包<br> <img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/5%E5%8C%85.png"  alt="5包">)<img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/6%E5%8C%85%E5%90%8D.png"  alt="6包名"><br> 在创建好的包上面右键，点击new—&gt;class，填写类名，之后勾选上生成main方法的复选框<br> <img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/7%E7%B1%BB.png"  alt="7类"> <img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/8%E7%B1%BB%E5%90%8D.png"  alt="8类名"><br> eclipse会自动编译源代码生成.class文件，不需要我们手动编译，所以编写好代码之后直接点击下图中的按钮即可运行（快捷键f11）。<br> <img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/9%E8%BF%90%E8%A1%8C.png"  alt="运行"><br> eclipse会自动编译，如果编译不通过，会将错误显示出来，如下图：<br> <img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/10%E6%8A%A5%E9%94%99.png"  alt="报错"><br> 如果出现黄色的提示，可以不用处理，程序依然能够正常编译和运行。这里的黄色提示只是一个警告不是错误：<br> <img src="/" class="lazyload" data-src="http://www.monkey1024.com/wp-content/uploads/2017/04/11%E8%AD%A6%E5%91%8A.png"  alt="警告"><br> 最后建议大家使用英文版的，不要使用汉化版。</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Reddes</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://reddescode.github.io/2019/09/14/%E4%BD%BF%E7%94%A8Eclipse%E5%BC%80%E5%8F%91HelloWorld/">http://reddescode.github.io/2019/09/14/%E4%BD%BF%E7%94%A8Eclipse%E5%BC%80%E5%8F%91HelloWorld/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://ReddesCode.github.io" target="_blank">Reddes的个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E2%80%94%E2%80%94%E7%AC%AC%E4%B8%89%E7%AB%A0-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">Java基础教程——第三章 面向对象</a></div><div class="post_share"><div class="social-share" data-image="/img/post.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2019/09/14/eclipse%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/"><img class="prev_cover lazyload" data-src="/img/post.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">eclipse的基本配置</div></div></a></div><div class="next-post pull_right"><a href="/2019/09/14/%E5%86%85%E9%83%A8%E7%B1%BB/"><img class="next_cover lazyload" data-src="/img/post.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">内部类</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/09/14/Eclipse中debug的使用/" title="Eclipse中debug的使用"><img class="relatedPosts_cover lazyload"data-src="/img/post.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2019-09-14</div><div class="relatedPosts_title">Eclipse中debug的使用</div></div></a></div><div class="relatedPosts_item"><a href="/2019/09/14/Java API简介/" title="Java API简介"><img class="relatedPosts_cover lazyload"data-src="/img/post.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2019-09-14</div><div class="relatedPosts_title">Java API简介</div></div></a></div><div class="relatedPosts_item"><a href="/2019/09/14/Object类之equals方法/" title="Object类之equals方法"><img class="relatedPosts_cover lazyload"data-src="/img/post.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2019-09-14</div><div class="relatedPosts_title">Object类之equals方法</div></div></a></div><div class="relatedPosts_item"><a href="/2019/09/14/Object类之finalize方法/" title="Object类之finalize方法"><img class="relatedPosts_cover lazyload"data-src="/img/post.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2019-09-14</div><div class="relatedPosts_title">Object类之finalize方法</div></div></a></div><div class="relatedPosts_item"><a href="/2019/09/14/Object类之toString方法/" title="Object类之toString方法"><img class="relatedPosts_cover lazyload"data-src="/img/post.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2019-09-14</div><div class="relatedPosts_title">Object类之toString方法</div></div></a></div><div class="relatedPosts_item"><a href="/2019/09/14/eclipse导入导出项目/" title="eclipse导入导出项目"><img class="relatedPosts_cover lazyload"data-src="/img/post.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2019-09-14</div><div class="relatedPosts_title">eclipse导入导出项目</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var requestSetting = function (from,set) {
+  var from = from
+  var setting = set.split(',').filter(function(item){
+  return from.indexOf(item) > -1
+  });
+  setting = setting.length == 0 ? from :setting;
+  return setting
+}
+
+var guestInfo = requestSetting(['nick','mail','link'],'nick,mail,link')
+var requiredFields = requestSetting(['nick','mail','link'],'nick,mail')
+
+window.valine = new Valine({
+  el:'#vcomment',
+  appId: 'f31J5kVi0JdGq11UOxhQJ12Y-gzGzoHsz',
+  appKey: 'urv1VlxqDU3Naidx9UGV9zmW',
+  notify: true,
+  verify: true,
+  placeholder: '写点什么。。',
+  avatar: 'monsterid',
+  meta: guestInfo,
+  pageSize: '10',
+  lang: 'zh-CN',
+  recordIP: false,
+  serverURLs: '',
+  emojiCDN: '',
+  emojiMaps: "",
+  enableQQ: true,
+  requiredFields: requiredFields
+});</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Reddes</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
